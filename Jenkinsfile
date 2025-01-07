@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'git@github.com:hieukha/fastapi-jenkins-demo.git'
+                git branch: 'main', url: 'https://github.com/hieukha/fastapi-jenkins-demo.git'
             }
         }
         stage('Install Dependencies') {
@@ -22,7 +22,7 @@ pipeline {
     post {
         always {
             junit 'report.xml'
-            githubChecksPublish name: 'FastAPI App', detailsURL: 'https://github.com/your-repo'
+            githubChecksPublish name: 'FastAPI App', detailsURL: 'https://github.com/hieukha/fastapi-jenkins-demo.git'
         }
     }
 }
